@@ -626,6 +626,13 @@ impl<'py> Python<'py> {
         unsafe { PyObject::from_borrowed_ptr(self, ffi::Py_NotImplemented()) }
     }
 
+    /// Gets the Python builtin value `Ellipsis`.
+    #[allow(non_snake_case)] // the Python keyword starts with uppercase
+    #[inline]
+    pub fn Ellipsis(self) -> PyObject {
+        unsafe { PyObject::from_borrowed_ptr(self, ffi::Py_Ellipsis()) }
+    }
+
     /// Gets the running Python interpreter version as a string.
     ///
     /// # Examples
